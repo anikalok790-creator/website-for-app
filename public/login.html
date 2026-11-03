@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - SnapPro</title>
+    <style>
+        body { font-family: sans-serif; background: #f8fafc; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .card { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 100%; max-width: 350px; text-align: center; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #0f172a; color: #fff; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        .error { color: #ef4444; background: #fee2e2; padding: 10px; border-radius: 8px; margin-bottom: 15px; display: none; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Admin Login</h2>
+        <div id="errorBox" class="error">Incorrect Password!</div>
+        <form action="/login" method="POST">
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <button type="submit">Login Securely</button>
+        </form>
+    </div>
+    <script>
+        if (new URLSearchParams(window.location.search).get('error') === '1') {
+            document.getElementById('errorBox').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
